@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, Alert } from 'react-native'
 
 import { Header, Button } from '../../../components'
 
@@ -18,7 +18,14 @@ const Index = function ({ navigation, route }) {
   const handleAddToCart = () => {
     action.addCart(data.id)
 
-    navigation.goBack()
+    Alert.alert('Success', 'Book success add to cart', [
+      {
+        text: 'OK',
+        onPress: () => {
+          navigation.goBack()
+        },
+      },
+    ])
   }
 
   return (
